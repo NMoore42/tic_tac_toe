@@ -31,7 +31,7 @@ function toggleNewGameSubmitButton() {
 
 function addNewPlayerHandler() {
   if (event.target.selectedOptions[0].dataset.name === 'new-player') {
-    let popup = new Foundation.Reveal($('#exampleModal1'))
+    let popup = new Foundation.Reveal($('#add-new-player-modal'))
     popup.open()
   }
 }
