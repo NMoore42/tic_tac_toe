@@ -11,7 +11,7 @@
     crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  
+
   <!-- Compressed JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js"
     integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw=="
@@ -101,6 +101,9 @@
             <input class='success button' type="submit" value="Create new player">
           </p>
         </form>
+        <button id="player-close-button" class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
     </main><!-- end #main -->
@@ -113,11 +116,11 @@
     <footer class="site-footer" id="site-footer">
 
     </footer><!-- end #site-footer -->
- 
+
 
   </div><!-- end #site-container -->
 
-  
+
   <script src="./src/index.js" defer></script>
 </body>
 </html>
