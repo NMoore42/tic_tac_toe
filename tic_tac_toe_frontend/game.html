@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
     integrity="sha256-xpOKVlYXzQ3P03j397+jWFZLMBXLES3IiryeClgU5og= sha384-gP4DhqyoT9b1vaikoHi9XQ8If7UNLO73JFOOlQV1RATrA7D0O7TjJZifac6NwPps sha512-AKwIib1E+xDeXe0tCgbc9uSvPwVYl6Awj7xl0FoaPFostZHOuDQ1abnDNCYtxL/HWEnVOMrFyf91TDgLPi9pNg=="
     crossorigin="anonymous">
-  
+
   <!-- Compressed JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js"
     integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw=="
@@ -17,11 +18,13 @@
 
   <!-- Font Awesome -->
   <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
-    integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH"
+    crossorigin="anonymous"></script>
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="./src/style.css">
 </head>
+
 <body>
 
 
@@ -44,55 +47,11 @@
       <h1 class='text-center'>Hello World</h1>
 
       <div class="grid-x grid-margin-x">
-        <div class="medium-8 cell">
-
-          <form id="start-game-form" action="" method="post">
-            <div class="grid-container">
-              <div class="grid-x grid-padding-x">
-                <fieldset class="fieldset">
-                  <legend>Players</legend>
-                  <div class="medium-6 cell">
-                    <label>Select Player One
-                      <select id="select-player-one" required>
-                        <option selected='true' disabled >Select a Player</option>
-                        <option value="husker">Husker</option>
-                        <option value="starbuck">Starbuck</option>
-                        <option value="hotdog">Hot Dog</option>
-                        <option value="apollo">Apollo</option>
-                        <option value="newplayer">Add New Player</option>
-                      </select>
-                    </label>
-                  </div><!-- .medium-6 -->
-                  <div class="medium-6 cell">
-                    <label>Select Player Two
-                      <select id="select-player-two" required>
-                        <option selected='true' disabled>Select a Player</option>
-                        <option value="husker">Husker</option>
-                        <option value="starbuck">Starbuck</option>
-                        <option value="hotdog">Hot Dog</option>
-                        <option value="apollo">Apollo</option>
-                        <option value="newplayer">Add New Player</option>
-                        <!-- <option value="newplayer" data-open='exampleModal1'>Add New Player</option> -->
-                      </select>
-                    </label>
-                  </div>
-                  <input type="submit" value="Start New Game" hidden='true'>
-                </fieldset>
-              </div>
-            </div>
-          </form>
-        </div><!-- .medium-8 -->
+        <div class="cell small-4">cell</div>
+        <div class="cell small-4">cell</div>
+        <div class="cell small-4">cell</div>
       </div>
 
-
-      <div class="reveal" id="exampleModal1" data-reveal>
-        <h1>Awesome. I Have It.</h1>
-        <p class="lead">Your couch. It is mine.</p>
-        <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
 
     </main><!-- end #main -->
 
@@ -104,11 +63,12 @@
     <footer class="site-footer" id="site-footer">
 
     </footer><!-- end #site-footer -->
- 
+
 
   </div><!-- end #site-container -->
 
-  
-  <script src="./src/index.js" defer></script>
+
+  <script src="./src/index.js"></script>
 </body>
+
 </html>
