@@ -4,9 +4,13 @@ const startGameForm = document.getElementById('start-game-form')
 const submitNewGame = startGameForm.querySelector('input[type="submit"]')
 const addPlayerForm = document.getElementById("add-player-form")
 const newPlayerName = document.getElementById("new-player-name")
+const scoreBoard = document.getElementById("scoreboard")
 const newPlayerClose = document.getElementById("player-close-button")
+const playerOneScore = document.getElementById("player-one-score")
+const playerTwoScore = document.getElementById("player-two-score")
 const gameDiv = document.getElementById("game-div")
 const playerDiv = document.getElementById("player-div")
+let activePlayerSymbol = "url('src/img/x.svg')"
 
 const popup = new Foundation.Reveal($('#add-new-player-modal'))
 let playerOne = 0;
@@ -32,7 +36,7 @@ newPlayerClose.addEventListener('click', resetSelectValue)
 function resetSelectValue() {
   let playerSelect = document.getElementById(addPlayerForm.dataset.playerSelectId)
   playerSelect[0].selected = "true"
-  submitNewGame.setAttribute('hidden', 'true')
+  submitNewGame.style.display = "none"
 }
 
 function appendPlayerSelectOptions(playersData) {
@@ -62,8 +66,8 @@ function toggleNewGameSubmitButton() {
   let validPlayerOne = selectPlayerOne.selectedIndex !== 0
   let validPlayerTwo = selectPlayerTwo.selectedIndex !== 0
   validPlayerOne && validPlayerTwo
-    ? submitNewGame.removeAttribute('hidden')
-    : submitNewGame.setAttribute('hidden', 'true')
+    ? submitNewGame.style.display = "block"
+    : submitNewGame.style.display = "none"
 }
 
 function addNewPlayerHandler() {
