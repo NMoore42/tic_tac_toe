@@ -1,4 +1,14 @@
-
+const newBoardElements = `<ul class="boxes">
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                            <li class="box" style=""></li>
+                          </ul>`
 
 
 
@@ -13,6 +23,8 @@ startGameForm.addEventListener("submit", newGameFetch)
 gameDiv.addEventListener("mouseover", mouseOverSymbol)
 gameDiv.addEventListener("mouseout", mouseOutClear)
 gameDiv.addEventListener("click", submitTurn)
+rematchButton.addEventListener("click", rematchGameFetch)
+homePageButton.addEventListener("click", homePage)
 
 
 
@@ -56,23 +68,41 @@ function submitTurn() {
   if (click.tagName === "LI" && !click.className.includes("box-filled")) {
     click.className = playerChecked()
     winHandler()
+    tieHandler()
   }
 }
 
-function winHandler() {
-  !checkWin() ? switchPlayers() : endGame()
+function tieHandler() {
+  if (checkTie()) {
+    endGame("Tie!")
+  }
 }
 
-function endGame() {
-  let winnerId = document.querySelector(".active-player").dataset.playerId
+function checkTie() {
+  return document.querySelectorAll('li.box-filled-1').length + document.querySelectorAll('li.box-filled-2').length === 9
+}
+
+function winHandler() {
+  let winner = document.querySelector(".active-player").dataset.playerName
+  checkWin() ? endGame(`${winner} wins!`) : switchPlayers()
+}
+
+function endGame(statement) {
+  let winnerId;
+  statement === "Tie!" ? winnerId = null : winnerId = document.querySelector(".active-player").dataset.playerId
+  let winner = document.querySelector(".active-player").dataset.playerName
   let gameId = gameDiv.dataset.gameId
+  winnerName.innerHTML = statement
   updateGameFetch(gameId, winnerId)
-  //enter screen change here
+  winnerPopup.open()
+  clearBoard()
 }
 
 function appendGamePage(gameData) {
   gameDiv.dataset.gameId = gameData.id
   playerOneScore.dataset.playerId = gameData.player_one_id
+  playerOneScore.dataset.playerName = playerOneName.innerHTML
+  playerTwoScore.dataset.playerName = playerTwoName.innerHTML
   playerTwoScore.dataset.playerId = gameData.player_two_id
   toggleDiv(playerDiv, "none")
   toggleDiv(gameContainer, "block")
@@ -98,6 +128,7 @@ function mouseOutClear() {
 }
 
 function checkWinHelper(box1, box2, box3) {
+  const boxes = document.querySelectorAll('li.box')
   return (boxes[box1].className === playerChecked() &&
   boxes[box2].className === playerChecked() &&
   boxes[box3].className === playerChecked())
@@ -115,8 +146,18 @@ function checkWin() {
     )
 }
 
+function clearBoard() {
+  gameDiv.innerHTML = newBoardElements
+  playerOneScore.className = "player-score active-player"
+  playerTwoScore.className = "player-score"
+}
 
-
+function homePage() {
+  winnerPopup.close()
+  allPlayerFetch()
+  toggleDiv(gameContainer, "none")
+  toggleDiv(playerDiv, "block")
+}
 
 
 /**
@@ -154,10 +195,24 @@ function postGameObj(playerOneId, playerTwoId) {
   }
 }
 
+function rematchGameFetch() {
+  let playerOneId = playerOneScore.dataset.playerId
+  let playerTwoId = playerTwoScore.dataset.playerId
+  playerOneName.innerHTML = selectPlayerOne[selectPlayerOne.selectedIndex].innerHTML
+  playerTwoName.innerHTML = selectPlayerTwo[selectPlayerTwo.selectedIndex].innerHTML
+  fetch('http://localhost:3000/api/v1/games', postGameObj(playerOneId, playerTwoId))
+   .then(res => res.json())
+   .then(gameData => {
+     winnerPopup.close()
+     appendGamePage(gameData)})
+   .catch(errors => console.log(errors.messages))
+}
+
+
 function updateGameFetch(gameId, winnerId) {
   fetch(`http://localhost:3000/api/v1/games/${gameId}`, patchGameObj(winnerId))
    .then(res => res.json())
-   //.then(gameData => ???)
+   //.then(gameData => ???)   Need to determine if we need to do something here
    .catch(errors => console.log(errors.messages))
 }
 

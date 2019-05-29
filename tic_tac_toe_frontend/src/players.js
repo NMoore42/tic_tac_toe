@@ -2,7 +2,6 @@ const selectPlayerOne = document.getElementById('select-player-one')
 const selectPlayerTwo = document.getElementById('select-player-two')
 const startGameForm = document.getElementById('start-game-form')
 const submitNewGame = startGameForm.querySelector('input[type="submit"]')
-const boxes = document.querySelectorAll('li.box')
 const addPlayerForm = document.getElementById("add-player-form")
 const newPlayerName = document.getElementById("new-player-name")
 const scoreBoard = document.getElementById("scoreboard")
@@ -12,14 +11,16 @@ const playerTwoScore = document.getElementById("player-two-score")
 const gameDiv = document.getElementById("game-div")
 const gameContainer = document.getElementById("game-container")
 const playerDiv = document.getElementById("player-div")
+const winnerName = document.getElementById("winner-name")
 const playerOneName = document.getElementById("player-one-card-name")
 const playerTwoName = document.getElementById("player-two-card-name")
-
-
+const rematchButton = document.getElementById("rematch-button")
+const homePageButton = document.getElementById("home-page")
 const popup = new Foundation.Reveal($('#add-new-player-modal'))
 const winnerPopup = new Foundation.Reveal($('#winner-rematch-modal'))
 let playerOne = 0;
 let playerTwo = 0;
+
 /**
  * ====================================================
  * EVENT LISTENERS
