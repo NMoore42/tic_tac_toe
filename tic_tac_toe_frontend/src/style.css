@@ -1,3 +1,8 @@
+/*
+----------------------
+=> START GAME FORM
+----------------------
+*/
 #start-game-form {
   border-radius: 5px;
     border: 1px solid gray;
@@ -14,6 +19,12 @@
 #start-game-form input[type='submit'] {
   margin-top: 20px;
 }
+
+/*
+----------------------
+=> SCOREBOARD
+----------------------
+*/
 
 .player-score {
   border: 1px solid darkgrey;
@@ -36,6 +47,53 @@
   margin-top: 5px;
 }
 
+/*
+----------------------
+=> TABLE
+----------------------
+*/
+
+table caption {
+  font-size: 2rem;
+  color: goldenrod;
+  text-transform: uppercase;
+}
+
+thead th {
+  text-align: center;
+  text-transform: uppercase;
+  color: gray;
+}
+.td-trophy {
+  width: 15px;
+}
+
+.td-player-name {
+  text-align: left;
+  /* font-weight: bold; */
+}
+
+.td-trophy.td-first-place {
+  color: gold;
+}
+
+.td-trophy.td-second-place {
+  color: silver;
+}
+
+.td-trophy.td-third-place {
+  color: #cd7f32;
+}
+
+#first-place,#second-place,#third-place {
+  font-weight: bold;
+}
+
+/*
+----------------------
+=> BOXES
+----------------------
+*/
 .boxes {
   width: 480px;
   margin: 3em auto 0; }
