@@ -15,6 +15,7 @@ const playerDiv = document.getElementById("player-div")
 
 
 const popup = new Foundation.Reveal($('#add-new-player-modal'))
+const winnerPopup = new Foundation.Reveal($('#winner-rematch-modal'))
 let playerOne = 0;
 let playerTwo = 0;
 /**
