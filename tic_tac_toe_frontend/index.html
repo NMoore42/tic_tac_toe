@@ -45,6 +45,9 @@
     <main class="main" id="main">
       <h1 class='text-center'>Tic Tac Toe</h1>
 
+      <!-- ---------------------- -->
+      <!-- PLAYER DIV -->
+      <!-- ---------------------- -->
       <div class="grid-x">
         <div id="player-div" class="medium-6 medium-offset-3 cell">
 
@@ -83,6 +86,9 @@
           </form>
         </div><!-- .medium-8 -->
 
+      <!-- ---------------------- -->
+      <!-- SCOREBOARD AND GAME DIV -->
+      <!-- ---------------------- -->
         <div class="medium-10 medium-offset-1 cell">
           <div id="scoreboard" style="display: none;">
             <div class="grid-x">
@@ -120,8 +126,57 @@
           </ul>
           </div>
         </div>
-
       </div>
+
+      <!-- ---------------------- -->
+      <!-- HALL OF FAME DIV -->
+      <!-- ---------------------- -->
+          <div id="hall-fame-div" style="display: none;">
+            <div class="grid-x">
+              <div class="medium-8 medium-offset-2 cell">
+              <table class='text-center'>
+                <caption>Hall of Fame</caption>
+                <thead>
+                  <th colspan="2">Player Name</th>
+                  <th>Games Played</th>
+                  <th>Games Won</th>
+                </thead>
+                <tbody>
+                  <tr class='player-stats' id="first-place">
+                    <td class='td-trophy td-first-place'><i class="fas fa-trophy"></i></td>
+                    <td class='td-player-name'>Messi</td>
+                    <td class='td-games-played'>20</td>
+                    <td class='td-games-won'>18</td>
+                  </tr>
+                  <tr class='player-stats' id='second-place'>
+                    <td class='td-trophy td-second-place'><i class="fas fa-medal"></i></td>
+                    <td class='td-player-name'>HAL 3000</td>
+                    <td class='td-games-played'>23</td>
+                    <td class='td-games-won'>8</td>
+                  </tr>
+                  <tr class='player-stats' id='third-place'>
+                    <td class='td-trophy td-third-place'><i class="fas fa-medal"></i></td>
+                    <td class='td-player-name'>Ronaldo</td>
+                    <td class='td-games-played'>23</td>
+                    <td class='td-games-won'>8</td>
+                  </tr>
+                  <tr class='player-stats'>
+                    <td class='td-trophy'></td>
+                    <td class='td-player-name'>HAL 3000</td>
+                    <td class='td-games-played'>23</td>
+                    <td class='td-games-won'>8</td>
+                  </tr>
+                  <tr class='player-stats'>
+                    <td class='td-trophy'></td>
+                    <td class='td-player-name'>HAL 3000</td>
+                    <td class='td-games-played'>23</td>
+                    <td class='td-games-won'>8</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
 
     <!-- ---------------------------------------------------------------------- -->
