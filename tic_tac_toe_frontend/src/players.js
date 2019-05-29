@@ -12,6 +12,8 @@ const playerTwoScore = document.getElementById("player-two-score")
 const gameDiv = document.getElementById("game-div")
 const gameContainer = document.getElementById("game-container")
 const playerDiv = document.getElementById("player-div")
+const playerOneName = document.getElementById("player-one-card-name")
+const playerTwoName = document.getElementById("player-two-card-name")
 
 
 const popup = new Foundation.Reveal($('#add-new-player-modal'))

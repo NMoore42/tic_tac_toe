@@ -55,16 +55,27 @@ function submitTurn() {
   let click = event.target
   if (click.tagName === "LI" && !click.className.includes("box-filled")) {
     click.className = playerChecked()
-    if (!checkWin()) {
-      switchPlayers()
-    }
+    winHandler()
   }
 }
 
+function winHandler() {
+  !checkWin() ? switchPlayers() : endGame()
+}
+
+function endGame() {
+  let winnerId = document.querySelector(".active-player").dataset.playerId
+  let gameId = gameDiv.dataset.gameId
+  updateGameFetch(gameId, winnerId)
+  //enter screen change here
+}
+
 function appendGamePage(gameData) {
+  gameDiv.dataset.gameId = gameData.id
+  playerOneScore.dataset.playerId = gameData.player_one_id
+  playerTwoScore.dataset.playerId = gameData.player_two_id
   toggleDiv(playerDiv, "none")
   toggleDiv(gameContainer, "block")
-  //toggleDiv(scoreBoard, "block")
   playerOneScore.className = "player-score active-player"
 }
 
@@ -93,7 +104,7 @@ function checkWinHelper(box1, box2, box3) {
 }
 
 function checkWin() {
-  if (checkWinHelper(0, 1, 2) ||
+  return (checkWinHelper(0, 1, 2) ||
       checkWinHelper(3, 4, 5) ||
       checkWinHelper(6, 7, 8) ||
       checkWinHelper(0, 3, 6) ||
@@ -101,10 +112,7 @@ function checkWin() {
       checkWinHelper(2, 5, 8) ||
       checkWinHelper(0, 4, 8) ||
       checkWinHelper(6, 4, 2)
-    ) {
-      console.log(`${playerSymbol()} wins!`)
-      return true
-    }
+    )
 }
 
 
@@ -121,6 +129,8 @@ function newGameFetch() {
   event.preventDefault();
   let playerOneId = selectPlayerOne[selectPlayerOne.selectedIndex].dataset.playerId
   let playerTwoId = selectPlayerTwo[selectPlayerTwo.selectedIndex].dataset.playerId
+  playerOneName.innerHTML = selectPlayerOne[selectPlayerOne.selectedIndex].innerHTML
+  playerTwoName.innerHTML = selectPlayerTwo[selectPlayerTwo.selectedIndex].innerHTML
   fetch('http://localhost:3000/api/v1/games', postGameObj(playerOneId, playerTwoId))
    .then(res => res.json())
    .then(gameData => appendGamePage(gameData))
@@ -139,6 +149,28 @@ function postGameObj(playerOneId, playerTwoId) {
         player_one_id: playerOneId,
         player_two_id: playerTwoId,
         winner: null
+      }
+    )
+  }
+}
+
+function updateGameFetch(gameId, winnerId) {
+  fetch(`http://localhost:3000/api/v1/games/${gameId}`, patchGameObj(winnerId))
+   .then(res => res.json())
+   //.then(gameData => ???)
+   .catch(errors => console.log(errors.messages))
+}
+
+function patchGameObj(winnerId) {
+  return {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(
+      {
+        winner: winnerId
       }
     )
   }
