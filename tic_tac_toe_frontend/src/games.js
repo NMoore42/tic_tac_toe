@@ -63,8 +63,8 @@ function submitTurn() {
 
 function appendGamePage(gameData) {
   toggleDiv(playerDiv, "none")
-  toggleDiv(gameDiv, "block")
-  toggleDiv(scoreBoard, "block")
+  toggleDiv(gameContainer, "block")
+  //toggleDiv(scoreBoard, "block")
   playerOneScore.className = "player-score active-player"
 }
 

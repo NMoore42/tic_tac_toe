@@ -10,6 +10,7 @@ const newPlayerClose = document.getElementById("player-close-button")
 const playerOneScore = document.getElementById("player-one-score")
 const playerTwoScore = document.getElementById("player-two-score")
 const gameDiv = document.getElementById("game-div")
+const gameContainer = document.getElementById("game-container")
 const playerDiv = document.getElementById("player-div")
 
 
