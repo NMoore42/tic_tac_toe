@@ -1,4 +1,4 @@
-
+let activePlayerSymbol = "url('src/img/x.svg')"
 
 
 
@@ -9,6 +9,8 @@
  */
 
  startGameForm.addEventListener("submit", newGameFetch)
+ gameDiv.addEventListener("mouseover", mouseOverSymbol)
+ gameDiv.addEventListener("mouseout", mouseOutClear)
 
 
 
@@ -18,6 +20,14 @@
   * ====================================================
   */
 
+  //Returns X or O .svg based on active player
+  function playerSymbol() {
+    // if (player1.classList == "players active"){
+    //   return "url('src/img/x.svg')"
+    // } else if (player2.classList == "players active"){
+    //   return "url('src/img/o.svg')"
+    // }
+  }
 
   function appendGamePage(gameData) {
     toggleDiv(playerDiv, "none")
@@ -26,6 +36,20 @@
 
   function toggleDiv(div, display) {
     div.style.display  = display
+  }
+
+  function mouseOverSymbol() {
+    mouseOver = event.target
+    if (mouseOver.tagName === "LI") {
+      mouseOver.style.backgroundImage = playerSymbol()
+    }
+  }
+
+  function mouseOutClear() {
+    mouseOut = event.target
+    if (mouseOut.tagName === "LI") {
+      mouseOut.style.backgroundImage = ""
+    }
   }
 
 
