@@ -87,53 +87,53 @@
         </div><!-- .medium-8 -->
 
       <!-- ---------------------- -->
-      <!-- SCOREBOARD AND GAME DIV -->
+      <!-- SCOREBOARD AND GAME    -->
       <!-- ---------------------- -->
-        <div class="medium-10 medium-offset-1 cell">
-          <div id="scoreboard" style="display: none;">
-            <div class="grid-x">
-              <div class="medium-2 cell">
+
+        <div id='game-container' class="medium-10 medium-offset-1 cell" style="display: none;">
+          <div class="grid-x">
+
+            <div class="medium-2 cell">
                 <div id="player-one-score" class='player-score'>
                   <div class="box box-filled-1"></div>
                   <div class="player-info text-center">
                     <p>Player 1 name</p>
                   </div>
                 </div>
+            </div>
+
+            <div class="medium-8 cell">
+              <div id="game-div">
+                <ul class="boxes">
+                  <li class="box"></li>
+                  <li class="box"></li>
+                  <li class="box"></li>
+                  <li class="box"></li>
+                  <li class="box"></li>
+                  <li class="box"></li>
+                  <li class="box"></li>
+                  <li class="box"></li>
+                  <li class="box"></li>
+                </ul>
               </div>
-              <div class="medium-2 medium-offset-8 cell">
-                <!-- <div id="player-two-score" class='player-score active-player'> -->
+            </div>
+
+            <div class="medium-2 cell">
                 <div id="player-two-score" class='player-score'>
                   <div class="box box-filled-2"></div>
                   <div class="player-info text-center">
                     <p>Player 2 name</p>
                   </div>
                 </div>
-              </div>
-
             </div>
-          </div>
-          <div id="game-div" style="display:none;">
-            <ul class="boxes">
-            <li class="box"></li>
-            <li class="box"></li>
-            <li class="box"></li>
-            <li class="box"></li>
-            <li class="box"></li>
-            <li class="box"></li>
-            <li class="box"></li>
-            <li class="box"></li>
-            <li class="box"></li>
-          </ul>
+
           </div>
         </div>
-      </div>
 
       <!-- ---------------------- -->
-      <!-- HALL OF FAME DIV -->
+      <!-- HALL OF FAME           -->
       <!-- ---------------------- -->
-          <div id="hall-fame-div" style="display: none;">
-            <div class="grid-x">
-              <div class="medium-8 medium-offset-2 cell">
+          <div id="hall-fame-container" class='medium-8 medium-offset-2 cell' style="display: none;">
               <table class='text-center'>
                 <caption>Hall of Fame</caption>
                 <thead>
@@ -174,8 +174,6 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
-          </div>
         </div>
 
 
