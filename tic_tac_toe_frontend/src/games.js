@@ -55,7 +55,9 @@ function submitTurn() {
   let click = event.target
   if (click.tagName === "LI" && !click.className.includes("box-filled")) {
     click.className = playerChecked()
-    switchPlayers()
+    if (!checkWin()) {
+      switchPlayers()
+    }
   }
 }
 
@@ -84,8 +86,26 @@ function mouseOutClear() {
   }
 }
 
+function checkWinHelper(box1, box2, box3) {
+  return (boxes[box1].className === playerChecked() &&
+  boxes[box2].className === playerChecked() &&
+  boxes[box3].className === playerChecked())
+}
 
-
+function checkWin() {
+  if (checkWinHelper(0, 1, 2) ||
+      checkWinHelper(3, 4, 5) ||
+      checkWinHelper(6, 7, 8) ||
+      checkWinHelper(0, 3, 6) ||
+      checkWinHelper(1, 4, 7) ||
+      checkWinHelper(2, 5, 8) ||
+      checkWinHelper(0, 4, 8) ||
+      checkWinHelper(6, 4, 2)
+    ) {
+      console.log(`${playerSymbol()} wins!`)
+      return true
+    }
+}
 
 
 

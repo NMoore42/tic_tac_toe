@@ -2,6 +2,7 @@ const selectPlayerOne = document.getElementById('select-player-one')
 const selectPlayerTwo = document.getElementById('select-player-two')
 const startGameForm = document.getElementById('start-game-form')
 const submitNewGame = startGameForm.querySelector('input[type="submit"]')
+const boxes = document.querySelectorAll('li.box')
 const addPlayerForm = document.getElementById("add-player-form")
 const newPlayerName = document.getElementById("new-player-name")
 const scoreBoard = document.getElementById("scoreboard")
@@ -10,7 +11,7 @@ const playerOneScore = document.getElementById("player-one-score")
 const playerTwoScore = document.getElementById("player-two-score")
 const gameDiv = document.getElementById("game-div")
 const playerDiv = document.getElementById("player-div")
-let activePlayerSymbol = "url('src/img/x.svg')"
+
 
 const popup = new Foundation.Reveal($('#add-new-player-modal'))
 let playerOne = 0;
