@@ -17,6 +17,7 @@ const playerTwoName = document.getElementById("player-two-card-name")
 
 
 const popup = new Foundation.Reveal($('#add-new-player-modal'))
+const winnerPopup = new Foundation.Reveal($('#winner-rematch-modal'))
 let playerOne = 0;
 let playerTwo = 0;
 /**
