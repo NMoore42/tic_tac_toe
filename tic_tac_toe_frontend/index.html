@@ -43,16 +43,14 @@
     <!-- ---------------------------------------------------------------------- -->
     <!-- ---------------------------------------------------------------------- -->
     <main class="main" id="main">
-      <h1 class='text-center'>Hello World</h1>
+      <h1 class='text-center'>Tic Tac Toe</h1>
 
-      <div class="grid-x grid-margin-x">
-        <div id="player-div" class="medium-8 cell">
+      <div class="grid-x">
+        <div id="player-div" class="medium-6 medium-offset-3 cell">
 
           <form id="start-game-form" action="" method="post">
             <div class="grid-container">
               <div class="grid-x grid-padding-x">
-                <fieldset class="fieldset">
-                  <legend>Players</legend>
                   <div class="medium-6 cell">
                     <label>Select Player One
                       <select id="select-player-one" required>
@@ -77,14 +75,39 @@
                       </select>
                     </label>
                   </div>
-                  <input type="submit" value="Start New Game" hidden='true'>
-                </fieldset>
+                  <div class="cell align-center">
+                    <input type="submit" value="Start New Game" class='success expanded button' style='display: none;'>
+                  </div>
               </div>
             </div>
           </form>
         </div><!-- .medium-8 -->
-        <div id="game-div" style="display:none;">
-          <ul class="boxes">
+
+        <div class="medium-10 medium-offset-1 cell">
+          <div id="scoreboard" style="display: none;">
+            <div class="grid-x">
+              <div class="medium-2 cell">
+                <div id="player-one-score" class='player-score'>
+                  <div class="box box-filled-1"></div>
+                  <div class="player-info text-center">
+                    <p>Player 1 name</p>
+                  </div>
+                </div>
+              </div>
+              <div class="medium-2 medium-offset-8 cell">
+                <!-- <div id="player-two-score" class='player-score active-player'> -->
+                <div id="player-two-score" class='player-score'>
+                  <div class="box box-filled-2"></div>
+                  <div class="player-info text-center">
+                    <p>Player 2 name</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div id="game-div" style="display:none;">
+            <ul class="boxes">
             <li class="box"></li>
             <li class="box"></li>
             <li class="box"></li>
@@ -95,7 +118,9 @@
             <li class="box"></li>
             <li class="box"></li>
           </ul>
+          </div>
         </div>
+
       </div>
 
 
