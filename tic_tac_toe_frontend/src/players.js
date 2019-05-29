@@ -5,6 +5,12 @@ const submitNewGame = startGameForm.querySelector('input[type="submit"]')
 const addPlayerForm = document.getElementById("add-player-form")
 const newPlayerName = document.getElementById("new-player-name")
 const newPlayerClose = document.getElementById("player-close-button")
+const gameDiv = document.getElementById("game-div")
+const playerDiv = document.getElementById("player-div")
+
+const popup = new Foundation.Reveal($('#add-new-player-modal'))
+let playerOne = 0;
+let playerTwo = 0;
 /**
  * ====================================================
  * EVENT LISTENERS
@@ -16,6 +22,7 @@ selectPlayerTwo.addEventListener('change', changePlayerOneSelectOptions)
 addPlayerForm.addEventListener('submit', newPlayerFetch)
 newPlayerClose.addEventListener('click', resetSelectValue)
 
+
 /**
  * ====================================================
  * DOM RENDERERS
@@ -25,6 +32,7 @@ newPlayerClose.addEventListener('click', resetSelectValue)
 function resetSelectValue() {
   let playerSelect = document.getElementById(addPlayerForm.dataset.playerSelectId)
   playerSelect[0].selected = "true"
+  submitNewGame.setAttribute('hidden', 'true')
 }
 
 function appendPlayerSelectOptions(playersData) {
@@ -33,10 +41,16 @@ function appendPlayerSelectOptions(playersData) {
   optionString += `<option data-name='new-player'>Add New Player</option>`
   selectPlayerOne.innerHTML = optionString;
   selectPlayerTwo.innerHTML = optionString;
+  if (playerOne) {
+    selectPlayerOne[playerOne].selected = "true"
+  }
+  if (playerTwo) {
+    selectPlayerTwo[playerTwo].selected = "true"
+  }
 }
 
 function createPlayerSelectOption(player) {
-  return `<option value="${player.name}">${player.name}</option>`
+  return `<option data-player-id="${player.id}" value="${player.name}">${player.name}</option>`
 }
 
 function playerSelectHandler () {
@@ -54,19 +68,20 @@ function toggleNewGameSubmitButton() {
 
 function addNewPlayerHandler() {
   if (event.target.selectedOptions[0].dataset.name === 'new-player') {
-    let popup = new Foundation.Reveal($('#add-new-player-modal'))
     addPlayerForm.setAttribute("data-player-select-id", event.target.id)
     popup.open()
   }
 }
 
 function changePlayerTwoSelectOptions() {
+  playerOne = selectPlayerOne.selectedIndex
   showAllOptions(selectPlayerTwo)
   selectPlayerTwo[selectPlayerOne.selectedIndex].setAttribute('hidden', 'true')
   selectPlayerTwo.lastElementChild.removeAttribute('hidden')
 }
 
 function changePlayerOneSelectOptions() {
+  playerTwo = selectPlayerTwo.selectedIndex
   showAllOptions(selectPlayerOne)
   selectPlayerOne[selectPlayerTwo.selectedIndex].setAttribute('hidden', 'true')
   selectPlayerOne.lastElementChild.removeAttribute('hidden')
@@ -87,15 +102,21 @@ function showAllOptions(selectForm) {
  function allPlayerFetch(){
    fetch('http://localhost:3000/api/v1/players')
     .then(res => res.json())
-    .then(playersData => appendPlayerSelectOptions(playersData))
+    .then(playersData => {
+      appendPlayerSelectOptions(playersData)
+      changePlayerOneSelectOptions()
+      changePlayerTwoSelectOptions()
+    })
     .catch(errors => console.log(errors.messages))
  }
 
  function newPlayerFetch() {
+   event.preventDefault();
    fetch('http://localhost:3000/api/v1/players', postPlayerObj(newPlayerName.value))
     .then(res => res.json())
-    //.then(player => )  UPDATE THIS TO SET PLAYER SELECT TO NEWLY CREATED PLAYER NAME
+    .then(player => allPlayerFetch())
     .catch(errors => console.log(errors.messages))
+    popup.close();
  }
 
  function postPlayerObj(name) {

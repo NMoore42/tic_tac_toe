@@ -1,0 +1,29 @@
+.boxes {
+  width: 480px;
+  margin: 3em auto 0; }
+  .boxes .box {
+    background: #EFEFEF;
+    border-radius: 4px;
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    padding: 1.75em;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    list-style: none;}
+    .boxes .box:nth-child(3n) {
+      margin-right: 0; }
+    .boxes .box-filled-1 {
+      background-color: #1ab2ff;
+      background-image: url(./img/o.svg); }
+    .boxes .box-filled-2 {
+      background-color: #ff0055;
+      background-image: url(./img/x.svg); }
+
+  
