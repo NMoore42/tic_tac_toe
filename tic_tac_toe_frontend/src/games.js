@@ -163,6 +163,7 @@ function homePage() {
   winnerPopup.close()
   allPlayerFetch()
   toggleDiv(gameContainer, "none")
+  toggleDiv(hallFameDiv, "none")
   toggleDiv(playerDiv, "block")
   toggleDiv(gameLogo, "block")
 }
