@@ -88,10 +88,16 @@ function winHandler() {
 }
 
 function endGame(statement) {
-  let winnerId;
-  statement === "Tie!" ? winnerId = null : winnerId = document.querySelector(".active-player").dataset.playerId
   let winner = document.querySelector(".active-player").dataset.playerName
   let gameId = gameDiv.dataset.gameId
+  let winnerId;
+  if (statement === "Tie!") {
+    winnerId = null
+    winnerStats.style.display = "none"
+  } else {
+    winnerId = document.querySelector(".active-player").dataset.playerId
+    winnerStats.style.display = "block"
+  }
   winnerName.innerHTML = statement
   updateGameFetch(gameId, winnerId)
   winnerPopup.open()
@@ -105,6 +111,7 @@ function appendGamePage(gameData) {
   playerTwoScore.dataset.playerName = playerTwoName.innerHTML
   playerTwoScore.dataset.playerId = gameData.player_two_id
   toggleDiv(playerDiv, "none")
+  toggleDiv(gameLogo, "none")
   toggleDiv(gameContainer, "block")
   playerOneScore.className = "player-score active-player"
 }
@@ -157,6 +164,7 @@ function homePage() {
   allPlayerFetch()
   toggleDiv(gameContainer, "none")
   toggleDiv(playerDiv, "block")
+  toggleDiv(gameLogo, "block")
 }
 
 
