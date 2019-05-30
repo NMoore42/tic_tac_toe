@@ -96,12 +96,20 @@ function endGame(statement) {
     winnerStats.style.display = "none"
   } else {
     winnerId = document.querySelector(".active-player").dataset.playerId
-    winnerStats.style.display = "block"
+    fetchSingleStats(winnerId)
   }
   winnerName.innerHTML = statement
   updateGameFetch(gameId, winnerId)
   winnerPopup.open()
   clearBoard()
+}
+
+function filterSingleStats(gameData, id) {
+  let playerData = gameData.filter(obj => obj.id == id)
+  console.log(playerData)
+  gamesWon.innerHTML = playerData[0].games_won + 1
+  gamesPlayed.innerHTML = playerData[0].games_played
+  winnerStats.style.display = "block"
 }
 
 function appendGamePage(gameData) {
@@ -214,6 +222,13 @@ function rematchGameFetch() {
    .then(gameData => {
      winnerPopup.close()
      appendGamePage(gameData)})
+   .catch(errors => console.log(errors.messages))
+}
+
+function fetchSingleStats(id) {
+  fetch("http://localhost:3000/api/v1/stats")
+   .then(res => res.json())
+   .then(gameData => filterSingleStats(gameData, id))
    .catch(errors => console.log(errors.messages))
 }
 

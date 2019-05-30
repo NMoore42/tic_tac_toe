@@ -24,6 +24,16 @@ class Api::V1::GamesController < ApplicationController
     end
   end
 
+  def winner
+    @games = Game.get_top_three_winners
+    render json: @games
+  end
+
+  def stats
+    @games = Game.get_single_player_stats
+    render json: @games
+  end
+
   private
 
   def game_params
