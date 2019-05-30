@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="src/img/fav_icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="src/img/fav_icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href=" src/img/fav_icon/favicon-16x16.png">
+  <link rel="manifest" href="src/img/fav_icon/site.webmanifest">
+  <link rel="mask-icon" href="src/img/fav_icon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   <title>Tic Tac Toe</title>
   <!-- Compressed CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/css/foundation.min.css"
@@ -205,17 +212,17 @@
       <div class="full reveal" id="winner-rematch-modal" data-reveal>
         <div class="grid-x">
 
-          <div id='' class="medium-8 medium-offset-2 cells text-center">
+          <div id='win-div' class="medium-8 medium-offset-2 cells text-center">
             <p>
               <i class="fas fa-trophy fa-3x" style="color: gold;"></i>
             </p>
             <h2><span id="winner-name"></span></h2>
-            <p class='lead' style="font-weight: bold;">
+            <!-- <p class='lead' style="font-weight: bold;">
               Games Won: <span id="games-won">3</span>
             </p>
             <p>
               Games Played: <span id="games-played">30</span>
-            </p>
+            </p> -->
             <div class="button-group align-center">
               <a id="rematch-button" class="alert button"><i class="fas fa-gamepad"></i>&nbsp; Rematch!</a>
               <a id="home-page" class="secondary button">Home Page <i class="fas fa-home"></i></a>
