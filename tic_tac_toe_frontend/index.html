@@ -44,7 +44,6 @@
     <!-- ---------------------------------------------------------------------- -->
     <!-- ---------------------------------------------------------------------- -->
     <header class="site-header" id="site-header">
-
     </header><!-- end #site-header -->
 
     <!-- ---------------------------------------------------------------------- -->
@@ -65,8 +64,11 @@
           <form id="start-game-form" action="" method="post">
             <div class="grid-container">
               <div class="grid-x grid-padding-x">
+                  <div class="cell align-center text-center">
+                    <a id="show-hall-fame-button" class='warning large button'><i class="fas fa-trophy"></i> Hall of Fame</a>
+                  </div>
                   <div class="medium-6 cell">
-                    <label>Select Player One
+                    <label><i class='fa fa-user'></i> Select Player 1
                       <select id="select-player-one" required>
                         <option selected='true' disabled >Select a Player</option>
                         <option value="husker">Husker</option>
@@ -78,7 +80,7 @@
                     </label>
                   </div><!-- .medium-6 -->
                   <div class="medium-6 cell">
-                    <label>Select Player Two
+                    <label><i class='fa fa-user'></i> Select Player 2
                       <select id="select-player-two" required>
                         <option selected='true' disabled>Select a Player</option>
                         <option value="husker">Husker</option>
@@ -90,7 +92,7 @@
                     </label>
                   </div>
                   <div class="cell align-center">
-                    <input type="submit" value="Start New Game" class='success expanded button' style='display: none;'>
+                    <input type="submit" value="Start New Game" class='success expanded large button' style='display: none;'>
                   </div>
               </div>
             </div>
