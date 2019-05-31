@@ -94,9 +94,15 @@ function endGame(statement) {
   if (statement === "Tie!") {
     winnerId = null
     winnerStats.style.display = "none"
+    winDiv.querySelector(".fa-cat").style.display = "inline-block";
+    winDiv.querySelector(".fa-trophy").style.display = "none";
+    fireworks.style.display = "none"
   } else {
     winnerId = document.querySelector(".active-player").dataset.playerId
     fetchSingleStats(winnerId)
+    winDiv.querySelector(".fa-cat").style.display = "none";
+    winDiv.querySelector(".fa-trophy").style.display = "inline-block";
+    fireworks.style.display = "block"
   }
   winnerName.innerHTML = statement
   updateGameFetch(gameId, winnerId)
