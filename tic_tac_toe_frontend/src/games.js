@@ -236,7 +236,6 @@ function fetchSingleStats(id) {
 function updateGameFetch(gameId, winnerId) {
   fetch(`http://localhost:3000/api/v1/games/${gameId}`, patchGameObj(winnerId))
    .then(res => res.json())
-   //.then(gameData => ???)   Need to determine if we need to do something here
    .catch(errors => console.log(errors.messages))
 }
 
